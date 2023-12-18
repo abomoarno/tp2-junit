@@ -9,21 +9,21 @@ public class Tax {
     }
 
     public double calculNet(){
-        return emp.brute  - calculTax();
+        return emp.getBrute()  - calculTax();
     }
 
     public double calculTax(){
-        return emp.brute * getTaux();
+        return emp.getBrute() * getTaux();
     }
 
     private double getTaux(){
         double taux;
 
-        if (emp.brute >= 60000.0){
+        if (emp.getBrute() >= 60000.0){
             taux = .15;
-        } else if (emp.brute >= 45000.0) {
+        } else if (emp.getBrute() >= 45000.0) {
             taux = .1;
-        } else if (emp.brute >= 3500){
+        } else if (emp.getBrute() >= 3500){
             taux = .075;
         } else {
             taux = 0.0;
@@ -31,7 +31,7 @@ public class Tax {
 
         double reduction;
 
-        if ((taux > 0.0) &&( emp.enfant > 0)){
+        if ((taux > 0.0) &&( emp.getEnfant() > 0)){
             reduction = 0.025;
         } else {
             reduction = 0.0;
